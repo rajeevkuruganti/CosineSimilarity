@@ -1,6 +1,8 @@
 package com.fourcircles.cosine.similarity.helpers
 
-class WordHelper {
+import com.fourcircles.cosine.similarity.service.CosineSimScoreService
+
+class VectorHelper {
 
     fun splitString(source: String): List<String> {
 
@@ -49,30 +51,6 @@ class WordHelper {
         return sum
     }
 
-    fun computeSimilarity(
-        wordsOccurence: HashMap<String, Int>,
-        wordsOccurence1: HashMap<String, Int>
-    ): Int {
-        var rawSimScore = innnerProduct(wordsOccurence,wordsOccurence1)/(normOfVector(wordsOccurence)*normOfVector(wordsOccurence1))
-        return Math.round(rawSimScore.toFloat()*100)
-    }
-
 }
 
-fun main(args: Array<String>) {
-    val wordHelper = WordHelper()
-
-    var wordsOccurence: HashMap<String, Int> = HashMap()
-    var wordsOccurence1: HashMap<String, Int> = HashMap()
-//    wordsOccurence = wordHelper.createVectorFromText("this is my string and a short string for this")
-     wordsOccurence = wordHelper.createVectorFromText("The beans Cow jumped Over The moon. Good Morning. Jumped Beans")
-     wordsOccurence1 = wordHelper.createVectorFromText("The cow jumped over the moon. beans Good morning. Jumped Beans")
-//    println(wordsOccurence.toString())
-//    println(wordsOccurence1.toString())
-//    println(wordHelper.normOfVector(wordsOccurence))
-//    println(wordHelper.normOfVector(wordsOccurence1))
-
-    print(" cosine similarity = " + wordHelper.computeSimilarity(wordsOccurence,wordsOccurence1) )
-
-}
 
