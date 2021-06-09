@@ -8,7 +8,7 @@ class CosineSimScoreService {companion object  {
         wordsOccurence1: HashMap<String, Int>
     ): Int {
           val vectorHelper:VectorHelper = VectorHelper()
-        var rawSimScore = vectorHelper.innnerProduct(wordsOccurence,wordsOccurence1)/(vectorHelper.normOfVector(wordsOccurence)*vectorHelper.normOfVector(wordsOccurence1))
+        var rawSimScore = vectorHelper.innerProduct(wordsOccurence,wordsOccurence1)/(vectorHelper.normOfVector(wordsOccurence)*vectorHelper.normOfVector(wordsOccurence1))
         return Math.round(rawSimScore.toFloat()*100)
     }
 }
