@@ -26,10 +26,12 @@ class VectorHelperTest {
 
     @Test
     fun `inner product of two vectors test`() {
-        val source = "thor is a funny character. This character is in avengers movies"
-        wordsOccurenceSource1 = vectorHelper.createVectorFromText(source)
-        val normValue = "%.4f".format(vectorHelper.normOfVector(wordsOccurenceSource1))
-        assert((normValue.toDouble()) == 3.8730)
+        val globalSource = "star twinkle astronomy milky way constellation high up sky night"
+        val mySource = "twinkle twinkle little star how I wonder what you are up above the world so high"
+        wordsOccurenceSource1 = vectorHelper.createVectorFromText(globalSource)
+        wordsOccurenceSource2 = vectorHelper.createVectorFromText(mySource)
+        val innerProduct = vectorHelper.innerProduct(wordsOccurenceSource1, wordsOccurenceSource2)
+        assert(innerProduct == 5.0)
     }
     @Test
     fun `create vector from text`() {

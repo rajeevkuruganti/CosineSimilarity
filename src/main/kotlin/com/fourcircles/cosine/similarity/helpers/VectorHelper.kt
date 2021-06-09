@@ -35,12 +35,12 @@ class VectorHelper {
     }
 
     fun innerProduct(vector1: HashMap<String, Int>, vector2: HashMap<String, Int>): Double {
-        val sortedVec1 = vector1.toSortedMap()
-        val sortedVec2 = vector2.toSortedMap()
+        val sortedVector1 = vector1.toSortedMap()
+        val sortedVector2 = vector2.toSortedMap()
         var sum = 0.0
-        vector1.keys.map {
-            if (vector2.containsKey(it)) {
-                sum = sum + vector1.get(it)?.times(vector2.get(it)!!)!! ?: 0.00
+        sortedVector1.keys.map {
+            if (sortedVector2.containsKey(it)) {
+                sum = sum + sortedVector1.get(it)?.times(sortedVector2.get(it)!!)!! ?: 0.00
             }
         }
         return sum
