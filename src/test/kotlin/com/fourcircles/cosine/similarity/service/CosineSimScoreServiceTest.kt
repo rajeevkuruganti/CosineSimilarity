@@ -36,4 +36,12 @@ class CosineSimScoreServiceTest {
         assert(75 == CosineSimScoreService.computeSimilarity(wordsOccurenceSource1,wordsOccurenceSource2) )
     }
 
+    @Test
+    fun `test one of the sets is empty`() {
+        wordsOccurenceSource1 = vectorHelper.createVectorFromText("He likes Avengers’ movies")
+        wordsOccurenceSource2 = vectorHelper.createVectorFromText("")
+        println("sim SCore == " + CosineSimScoreService.computeSimilarity(wordsOccurenceSource1,wordsOccurenceSource2))
+        assert(0 == CosineSimScoreService.computeSimilarity(wordsOccurenceSource1,wordsOccurenceSource2) )
+    }
+
 }
